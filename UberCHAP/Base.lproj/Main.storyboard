@@ -1,11 +1,54 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4X7-3m-bvI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5we-p1-iOw">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="qRi-qb-XC1">
+            <objects>
+                <viewController id="aa8-j9-Xnu" customClass="LoginViewController" customModule="UberCHAP" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eah-ui-u47"/>
+                        <viewControllerLayoutGuide type="bottom" id="MG9-2D-6XZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ud7-Dk-m4l">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nD3-1O-Zr4">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Authorize with Uber to use the app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZe-1u-GVo">
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="osU-TO-WtK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nD3-1O-Zr4" firstAttribute="top" secondItem="eah-ui-u47" secondAttribute="bottom" id="IA4-kD-LwD"/>
+                            <constraint firstAttribute="trailing" secondItem="nD3-1O-Zr4" secondAttribute="trailing" id="Ulz-2Q-ra5"/>
+                            <constraint firstItem="MG9-2D-6XZ" firstAttribute="top" secondItem="nD3-1O-Zr4" secondAttribute="bottom" id="mDN-a7-YJc"/>
+                            <constraint firstItem="nD3-1O-Zr4" firstAttribute="leading" secondItem="Ud7-Dk-m4l" secondAttribute="leading" id="xn5-Xi-j2a"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="M4k-Zi-Igz"/>
+                    <connections>
+                        <outlet property="stackView" destination="nD3-1O-Zr4" id="OOg-iL-LLX"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="finishAuthorization" id="To2-05-Z39"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6me-Dn-TC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1685.5999999999999" y="-558.17091454272872"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -73,25 +116,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="864.79999999999995" y="-558.17091454272872"/>
+            <point key="canvasLocation" x="2456.8000000000002" y="-558.17091454272872"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="kAh-Q7-9Ra">
+        <scene sceneID="aFa-eP-dmG">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4X7-3m-bvI" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5we-p1-iOw" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="K6g-UI-yZj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="12R-rw-6Wp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="KpD-Sw-WtM"/>
+                        <segue destination="aa8-j9-Xnu" kind="relationship" relationship="rootViewController" id="wYe-DC-HSW"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lcF-d4-Nzp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xNj-ZI-yvR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="125.59999999999999" y="-558.17091454272872"/>
+            <point key="canvasLocation" x="744.79999999999995" y="-558.17091454272872"/>
         </scene>
     </scenes>
 </document>
