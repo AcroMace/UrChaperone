@@ -7,19 +7,24 @@
 //
 
 import UIKit
+import MapKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, LocationServiceDelegate {
+
+    @IBOutlet weak var gpsLabel: UILabel!
+
+    let locationService = LocationService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        locationService.delegate = self
+        locationService.toggle(enable: true)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func locationDidUpdate(coordinate: CLLocationCoordinate2D) {
+        gpsLabel.text = "\(coordinate.latitude), \(coordinate.longitude)"
     }
-
 
 }
 
