@@ -39,17 +39,17 @@ class LocationService: NSObject, CLLocationManagerDelegate {
 
     // MARK: CLLocationManagerDelegate
 
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard locations.count > 0 else { return }
-
+        
         let coordinate = locations[0].coordinate
-
-        if UIApplication.shared.applicationState == .active {
+        
+        if UIApplication.sharedApplication().applicationState == .Active {
             print("Foreground location: \(coordinate)")
         } else {
             print("Background location: \(coordinate)")
         }
-        delegate?.locationDidUpdate(coordinate: coordinate)
+        delegate?.locationDidUpdate(coordinate)
     }
 
 }

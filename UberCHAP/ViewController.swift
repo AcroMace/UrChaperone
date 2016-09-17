@@ -20,7 +20,7 @@ class ViewController: UIViewController, LocationServiceDelegate {
         super.viewDidLoad()
 
         locationService.delegate = self
-        locationService.toggle(enable: true)
+        locationService.toggle(true)
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -35,13 +35,13 @@ class ViewController: UIViewController, LocationServiceDelegate {
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return coordinates.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let coordinate = coordinates[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: CoordinateTableViewCell.reuseIdentifier) as! CoordinateTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(CoordinateTableViewCell.reuseIdentifier) as! CoordinateTableViewCell
         cell.coordinateLabel.text = "\(coordinate.latitude), \(coordinate.longitude)"
         return cell
     }

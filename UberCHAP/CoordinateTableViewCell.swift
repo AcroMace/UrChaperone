@@ -10,7 +10,7 @@ import UIKit
 
 class CoordinateTableViewCell: UITableViewCell {
 
-    static let reuseIdentifier = String(describing: CoordinateTableViewCell.self)
+    static let reuseIdentifier = String(CoordinateTableViewCell.self)
 
     @IBOutlet weak var coordinateLabel: UILabel!
 

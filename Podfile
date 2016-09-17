@@ -1,6 +1,8 @@
 use_frameworks!
 
 target 'UberCHAP' do
-  pod 'Alamofire'
+  pod 'Alamofire', '~> 3.0'
+  pod 'SwiftyJSON'
+  pod 'UberRides'
 end
 
