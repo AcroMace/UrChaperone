@@ -2,6 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UberClientID</key>
+	<string>rIjDIkW72VzOZBAmso5D1D5jDG9V4jwP</string>
+	<key>UberDisplayName</key>
+	<string>UberCHAP</string>
+	<key>UberCallbackURIs</key>
+	<array>
+		<dict>
+			<key>UberCallbackURIType</key>
+			<string>General</string>
+			<key>URIString</key>
+			<string>localhost</string>
+		</dict>
+	</array>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Used to know when you leave a bar</string>
 	<key>CFBundleDevelopmentRegion</key>

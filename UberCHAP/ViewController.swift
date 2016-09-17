@@ -8,9 +8,11 @@
 
 import UIKit
 import MapKit
+import UberRides
 
 class ViewController: UIViewController, LocationServiceDelegate {
 
+    @IBOutlet weak var loginButtonContainerView: UIView!
     @IBOutlet weak var tableView: UITableView!
 
     let locationService = LocationService()
@@ -24,6 +26,18 @@ class ViewController: UIViewController, LocationServiceDelegate {
 
         tableView.delegate = self
         tableView.dataSource = self
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Uber
+        let scopes: [UberRides.RidesScope] = [.Profile, .Places, .Request]
+        let loginManager = LoginManager(loginType: .Native)
+        let loginButton = LoginButton(frame: CGRect(origin: CGPointZero, size: CGSize(width: 400.0, height: 80.0)), scopes: scopes, loginManager: loginManager)
+        loginButton.presentingViewController = self
+        loginButton.delegate = self
+        loginButtonContainerView.addSubview(loginButton)
     }
 
     func locationDidUpdate(coordinate: CLLocationCoordinate2D) {
@@ -44,6 +58,23 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier(CoordinateTableViewCell.reuseIdentifier) as! CoordinateTableViewCell
         cell.coordinateLabel.text = "\(coordinate.latitude), \(coordinate.longitude)"
         return cell
+    }
+
+}
+
+extension ViewController: LoginButtonDelegate {
+    
+    // Mark: LoginButtonDelegate
+    
+    func loginButton(button: LoginButton, didLogoutWithSuccess success: Bool) {
+        // success is true if logout succeeded, false otherwise
+    }
+    
+    func loginButton(button: LoginButton, didCompleteLoginWithToken accessToken: AccessToken?, error: NSError?) {
+        if let accessToken = accessToken {
+            // AccessToken Saved
+            print(accessToken)
+        }
     }
 
 }
