@@ -43,6 +43,7 @@
                     <connections>
                         <outlet property="stackView" destination="nD3-1O-Zr4" id="OOg-iL-LLX"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="finishAuthorization" id="To2-05-Z39"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="alreadyAuthorized" animates="NO" id="1NV-DR-1l3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6me-Dn-TC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -137,4 +138,7 @@
             <point key="canvasLocation" x="744.79999999999995" y="-558.17091454272872"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="1NV-DR-1l3"/>
+    </inferredMetricsTieBreakers>
 </document>

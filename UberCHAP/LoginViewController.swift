@@ -22,6 +22,12 @@ class LoginViewController: UIViewController {
         stackView.addArrangedSubview(loginButton)
     }
 
+    private func checkIfAlreadyAuthorized() {
+        if UberService.getToken() != nil {
+            performSegueWithIdentifier("alreadyAuthorized", sender: self)
+        }
+    }
+
     private func createLoginButton() -> LoginButton {
         let scopes: [UberRides.RidesScope] = [.Profile, .Places, .Request]
         let loginManager = LoginManager(loginType: .Native)
@@ -46,6 +52,7 @@ extension LoginViewController: LoginButtonDelegate {
         }
         print("Got access token: \(accessToken)")
         UberService.saveToken(tokenString)
+        performSegueWithIdentifier("finishAuthorization", sender: self)
     }
 
     func loginButton(button: LoginButton, didLogoutWithSuccess success: Bool) {

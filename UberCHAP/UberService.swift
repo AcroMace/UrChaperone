@@ -30,7 +30,7 @@ class UberService {
         }
 
         let behavior = RideRequestViewRequestingBehavior(presentingViewController: presentingViewController)
-        let parameters = RideParametersBuilder().build()
+        let parameters = RideParametersBuilder().setDropoffPlaceID("home").build()
         let button = RideRequestButton(rideParameters: parameters, requestingBehavior: behavior)
         return button
     }
@@ -39,7 +39,7 @@ class UberService {
         getInstance().setObject(token, forKey: UberService.key)
     }
 
-    static private func getToken() -> String? {
+    static func getToken() -> String? {
         return getInstance().objectForKey(UberService.key) as? String
     }
 
