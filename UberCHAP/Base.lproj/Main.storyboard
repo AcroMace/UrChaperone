@@ -29,7 +29,7 @@
                                     <constraint firstAttribute="width" secondItem="GsM-Y9-Vnm" secondAttribute="height" multiplier="343:342" id="XqL-KZ-cRF"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logistics redefined" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PkH-mc-Lxh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="One swipe fits all" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PkH-mc-Lxh">
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -50,6 +50,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="UrChaperone" id="M4k-Zi-Igz"/>
                     <connections>
+                        <outlet property="authorizeLabel" destination="HZe-1u-GVo" id="1KB-Ii-dAs"/>
                         <segue destination="kQE-hP-LVP" kind="show" identifier="finishAuthorization" id="2VX-Zz-GwW"/>
                         <segue destination="kQE-hP-LVP" kind="show" identifier="alreadyAuthorized" animates="NO" id="phP-g4-5qZ"/>
                     </connections>
@@ -161,7 +162,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5we-p1-iOw" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" misplaced="YES" id="12R-rw-6Wp">
+                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" id="12R-rw-6Wp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -183,6 +184,6 @@
         <image name="UCLogo" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="phP-g4-5qZ"/>
+        <segue reference="2VX-Zz-GwW"/>
     </inferredMetricsTieBreakers>
 </document>

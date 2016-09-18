@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>UrChaperone</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -75,6 +77,6 @@
 	<key>UberClientID</key>
 	<string>rIjDIkW72VzOZBAmso5D1D5jDG9V4jwP</string>
 	<key>UberDisplayName</key>
-	<string>UberCHAP</string>
+	<string>UrChaperone</string>
 </dict>
 </plist>

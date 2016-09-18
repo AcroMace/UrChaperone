@@ -11,6 +11,8 @@ import UberRides
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var authorizeLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,11 +22,12 @@ class LoginViewController: UIViewController {
         view.addSubview(loginButton)
 
         // :(
-        loginButton.frame = CGRect(origin: CGPoint(x: (view.frame.width - loginButton.frame.width)/2, y: view.frame.height * 0.8), size: loginButton.frame.size)
+        let frame = CGRect(origin: CGPointZero, size: CGSize(width: view.frame.width * 0.8, height: 60.0))
+        loginButton.frame = CGRect(origin: CGPoint(x: (view.frame.width - frame.width)/2, y: view.frame.height * 0.8), size: CGSize(width: frame.width, height: frame.height))
 
         checkIfAlreadyAuthorized()
 
-        LocationService.search("256 Blair St")
+//        LocationService.search("256 Blair St")
     }
 
     private func checkIfAlreadyAuthorized() {
@@ -37,10 +40,7 @@ class LoginViewController: UIViewController {
     private func createLoginButton() -> LoginButton {
         let scopes: [UberRides.RidesScope] = [.Profile, .Places, .Request]
         let loginManager = LoginManager(loginType: .Native)
-        let frame = CGRect(origin: CGPointZero, size: CGSize(width: 200, height: 80.0))
-        let loginButton = LoginButton(frame: frame, scopes: scopes, loginManager: loginManager)
-        loginButton.frame = frame
-        loginButton.frame.size = frame.size
+        let loginButton = LoginButton(frame: CGRectZero, scopes: scopes, loginManager: loginManager)
         loginButton.presentingViewController = self
         loginButton.delegate = self
 

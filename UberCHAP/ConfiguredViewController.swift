@@ -16,7 +16,8 @@ class ConfiguredViewController: UIViewController, LocationServiceDelegate  {
 
     // Minimum distance the user has to travel from their homes before they are
     // asked to book a ride
-    static let minDistanceBeforePushInMeters: Double = 20
+    // Set to 0 for the demo so we don't have to leave the building
+    static let minDistanceBeforePushInMeters: Double = 0
 
     let locationService = LocationService()
     var homeLocation: CLLocationCoordinate2D? = nil
@@ -34,8 +35,6 @@ class ConfiguredViewController: UIViewController, LocationServiceDelegate  {
 
         locationService.delegate = self
         locationService.toggle(true)
-
-        
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -97,6 +96,10 @@ class ConfiguredViewController: UIViewController, LocationServiceDelegate  {
         annotation.coordinate = coordinate
         annotation.title = "Home"
         mapView.addAnnotation(annotation)
+
+        let viewRegion = MKCoordinateRegionMakeWithDistance(coordinate, 500, 500)
+        let adjustedRegion = mapView.regionThatFits(viewRegion)
+        mapView.setRegion(adjustedRegion, animated: true)
     }
 
     // Get the distance between two coordinates
