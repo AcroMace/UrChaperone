@@ -26,6 +26,18 @@ class ConfiguredViewController: UIViewController, LocationServiceDelegate  {
 
     func locationDidUpdate(coordinate: CLLocationCoordinate2D) {
         coordinates.append(coordinate)
+        if coordinates.count == 1 {
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = coordinate
+            annotation.title = "Home"
+            mapView.addAnnotation(annotation)
+        }
+    }
+
+    @IBAction func saveHomeLocation(sender: AnyObject) {
+        if let lastCoordinate = coordinates.last {
+            LocationService.saveHomeLocation(lastCoordinate)
+        }
     }
 
 }

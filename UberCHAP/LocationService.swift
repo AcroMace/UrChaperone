@@ -15,6 +15,9 @@ protocol LocationServiceDelegate {
 
 class LocationService: NSObject, CLLocationManagerDelegate {
 
+    static let latitudeKey = "LATITUDE"
+    static let longitudeKey = "LONGITUDE"
+
     var delegate: LocationServiceDelegate?
     let locationManager = CLLocationManager()
 
@@ -35,6 +38,29 @@ class LocationService: NSObject, CLLocationManagerDelegate {
         } else {
             locationManager.stopUpdatingLocation()
         }
+    }
+
+    static func saveHomeLocation(coordinate: CLLocationCoordinate2D) {
+        let userDefaults = getInstance()
+        userDefaults.setObject(coordinate.latitude, forKey: LocationService.latitudeKey)
+        userDefaults.setObject(coordinate.longitude, forKey: LocationService.longitudeKey)
+        print("Saved home location \(coordinate)")
+    }
+
+    static func getHomeLocation() -> CLLocationCoordinate2D? {
+        let userDefaults = getInstance()
+        guard let
+            latitude = userDefaults.objectForKey(LocationService.latitudeKey) as? CLLocationDegrees,
+            longitude = userDefaults.objectForKey(LocationService.longitudeKey) as? CLLocationDegrees else {
+            return nil
+        }
+        let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        print("Got home location \(coordinate)")
+        return coordinate
+    }
+
+    static private func getInstance() -> NSUserDefaults {
+        return NSUserDefaults.standardUserDefaults()
     }
 
     // MARK: CLLocationManagerDelegate
