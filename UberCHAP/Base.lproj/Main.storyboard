@@ -2,10 +2,12 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5we-p1-iOw">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--UrChaperone-->
         <scene sceneID="qRi-qb-XC1">
             <objects>
                 <viewController id="aa8-j9-Xnu" customClass="LoginViewController" customModule="UberCHAP" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,30 +19,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nD3-1O-Zr4">
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Authorize with Uber to use the app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZe-1u-GVo">
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="osU-TO-WtK"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Authorize with Uber to use the app" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZe-1u-GVo">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UCLogo" translatesAutoresizingMaskIntoConstraints="NO" id="GsM-Y9-Vnm">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="GsM-Y9-Vnm" secondAttribute="height" multiplier="343:342" id="XqL-KZ-cRF"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logistics redefined" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PkH-mc-Lxh">
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="nD3-1O-Zr4" firstAttribute="top" secondItem="eah-ui-u47" secondAttribute="bottom" id="IA4-kD-LwD"/>
-                            <constraint firstAttribute="trailing" secondItem="nD3-1O-Zr4" secondAttribute="trailing" id="Ulz-2Q-ra5"/>
-                            <constraint firstItem="MG9-2D-6XZ" firstAttribute="top" secondItem="nD3-1O-Zr4" secondAttribute="bottom" id="mDN-a7-YJc"/>
-                            <constraint firstItem="nD3-1O-Zr4" firstAttribute="leading" secondItem="Ud7-Dk-m4l" secondAttribute="leading" id="xn5-Xi-j2a"/>
+                            <constraint firstItem="PkH-mc-Lxh" firstAttribute="top" secondItem="GsM-Y9-Vnm" secondAttribute="bottom" constant="8" id="3hI-qQ-1W1"/>
+                            <constraint firstItem="MG9-2D-6XZ" firstAttribute="top" secondItem="HZe-1u-GVo" secondAttribute="bottom" constant="16" id="4az-p1-bB0"/>
+                            <constraint firstItem="GsM-Y9-Vnm" firstAttribute="trailing" secondItem="Ud7-Dk-m4l" secondAttribute="trailingMargin" constant="8" id="6pt-gg-uIe"/>
+                            <constraint firstItem="GsM-Y9-Vnm" firstAttribute="top" secondItem="eah-ui-u47" secondAttribute="bottom" constant="24" id="Ixx-YS-xvc"/>
+                            <constraint firstItem="HZe-1u-GVo" firstAttribute="leading" secondItem="Ud7-Dk-m4l" secondAttribute="leading" constant="8" id="Wc2-hM-dza"/>
+                            <constraint firstItem="GsM-Y9-Vnm" firstAttribute="leading" secondItem="Ud7-Dk-m4l" secondAttribute="leading" constant="8" id="WmS-pD-2YW"/>
+                            <constraint firstItem="PkH-mc-Lxh" firstAttribute="leading" secondItem="Ud7-Dk-m4l" secondAttribute="leading" constant="8" id="few-fb-e4w"/>
+                            <constraint firstAttribute="trailing" secondItem="PkH-mc-Lxh" secondAttribute="trailing" constant="8" id="mcx-ko-GnW"/>
+                            <constraint firstAttribute="trailing" secondItem="HZe-1u-GVo" secondAttribute="trailing" constant="8" id="u8x-F2-Zha"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="M4k-Zi-Igz"/>
+                    <navigationItem key="navigationItem" title="UrChaperone" id="M4k-Zi-Igz"/>
                     <connections>
-                        <outlet property="stackView" destination="nD3-1O-Zr4" id="OOg-iL-LLX"/>
                         <segue destination="kQE-hP-LVP" kind="show" identifier="finishAuthorization" id="2VX-Zz-GwW"/>
                         <segue destination="kQE-hP-LVP" kind="show" identifier="alreadyAuthorized" animates="NO" id="phP-g4-5qZ"/>
                     </connections>
@@ -81,10 +90,10 @@
             </objects>
             <point key="canvasLocation" x="1686" y="203"/>
         </scene>
-        <!--Configured View Controller-->
+        <!--UrChaperone-->
         <scene sceneID="2ht-IX-Wfc">
             <objects>
-                <viewController id="kQE-hP-LVP" customClass="ConfiguredViewController" customModule="UberCHAP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="UrChaperone" id="kQE-hP-LVP" customClass="ConfiguredViewController" customModule="UberCHAP" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jG9-TV-Vbg"/>
                         <viewControllerLayoutGuide type="bottom" id="Qph-dZ-CGB"/>
@@ -93,12 +102,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You will receive a push notification to call an Uber if you're out of the house after 9 PM." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mkD-j8-mz9">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You will receive a push notification to call an Uber when you leave the house." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mkD-j8-mz9">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="8sX-Qg-nMR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Home Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhZ-Lr-9Yt">
@@ -106,7 +115,7 @@
                                     <constraint firstAttribute="height" constant="21" id="Qis-Ep-lDN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="KnS-Ju-G11"/>
@@ -114,7 +123,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="gQs-RL-ZAJ"/>
                                 </constraints>
-                                <state key="normal" title="Save"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="0.12941176470588234" green="0.58823529411764708" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="saveHomeLocation:" destination="kQE-hP-LVP" eventType="touchUpInside" id="xaX-vO-lX2"/>
                                 </connections>
@@ -150,9 +161,13 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5we-p1-iOw" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="12R-rw-6Wp">
+                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" misplaced="YES" id="12R-rw-6Wp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.21568627450980393" green="0.27843137254901962" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -164,7 +179,10 @@
             <point key="canvasLocation" x="744.79999999999995" y="-558.17091454272872"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="UCLogo" width="1024" height="1024"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="q4Q-bm-J3P"/>
+        <segue reference="phP-g4-5qZ"/>
     </inferredMetricsTieBreakers>
 </document>

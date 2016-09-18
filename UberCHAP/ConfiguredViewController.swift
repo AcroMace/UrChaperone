@@ -34,6 +34,13 @@ class ConfiguredViewController: UIViewController, LocationServiceDelegate  {
 
         locationService.delegate = self
         locationService.toggle(true)
+
+        
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.viewControllers = [self]
     }
 
     func locationDidUpdate(coordinate: CLLocationCoordinate2D) {

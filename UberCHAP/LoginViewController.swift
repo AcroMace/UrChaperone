@@ -11,15 +11,16 @@ import UberRides
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet weak var stackView: UIStackView!
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let loginButton = UberService.createLoginButton()
         loginButton.presentingViewController = self
         loginButton.delegate = self
-        stackView.addArrangedSubview(loginButton)
+        view.addSubview(loginButton)
+
+        // :(
+        loginButton.frame = CGRect(origin: CGPoint(x: (view.frame.width - loginButton.frame.width)/2, y: view.frame.height * 0.8), size: loginButton.frame.size)
 
         checkIfAlreadyAuthorized()
     }
@@ -34,11 +35,9 @@ class LoginViewController: UIViewController {
     private func createLoginButton() -> LoginButton {
         let scopes: [UberRides.RidesScope] = [.Profile, .Places, .Request]
         let loginManager = LoginManager(loginType: .Native)
-        let loginButton = LoginButton(frame: CGRect(origin: CGPointZero, size: CGSize(width: 400.0, height: 80.0)), scopes: scopes, loginManager: loginManager)
+        let loginButton = LoginButton(frame: CGRect(origin: CGPointZero, size: CGSize(width: view.frame.width * 0.6, height: 80.0)), scopes: scopes, loginManager: loginManager)
         loginButton.presentingViewController = self
         loginButton.delegate = self
-
-        loginButton.addConstraint(NSLayoutConstraint(item: loginButton, attribute: .Height, relatedBy: .Equal, toItem: .None, attribute: .NotAnAttribute, multiplier: 1.0, constant: 80.0))
 
         return loginButton
     }
