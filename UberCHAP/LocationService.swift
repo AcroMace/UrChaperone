@@ -13,13 +13,13 @@ protocol LocationServiceDelegate {
     func locationDidUpdate(coordinate: CLLocationCoordinate2D)
 }
 
-class LocationService: NSObject, CLLocationManagerDelegate {
+class LocationService: NSObject {
 
     static let latitudeKey = "LATITUDE"
     static let longitudeKey = "LONGITUDE"
 
     var delegate: LocationServiceDelegate?
-    let locationManager = CLLocationManager()
+    private let locationManager = CLLocationManager()
 
     override init() {
         super.init()
@@ -67,13 +67,17 @@ class LocationService: NSObject, CLLocationManagerDelegate {
         return NSUserDefaults.standardUserDefaults()
     }
 
-    // MARK: CLLocationManagerDelegate
+}
+
+// MARK: CLLocationManagerDelegate
+
+extension LocationService: CLLocationManagerDelegate {
 
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard locations.count > 0 else { return }
-        
+
         let coordinate = locations[0].coordinate
-        
+
         if UIApplication.sharedApplication().applicationState == .Active {
             print("Foreground location: \(coordinate)")
         } else {
