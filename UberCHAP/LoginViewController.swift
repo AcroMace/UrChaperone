@@ -23,9 +23,12 @@ class LoginViewController: UIViewController {
 
         // Set a temporary notification thing
         NotificationService.scheduleNotification()
+
+        checkIfAlreadyAuthorized()
     }
 
     private func checkIfAlreadyAuthorized() {
+        print("Token: \(UberService.getToken())")
         if UberService.getToken() != nil {
             performSegueWithIdentifier("alreadyAuthorized", sender: self)
         }
@@ -50,6 +53,9 @@ class LoginViewController: UIViewController {
 extension LoginViewController: LoginButtonDelegate {
 
     func loginButton(button: LoginButton, didCompleteLoginWithToken accessToken: AccessToken?, error: NSError?) {
+        print("Login button returned")
+        print(accessToken)
+        print(error)
         guard let accessToken = accessToken, tokenString = accessToken.tokenString else {
             return
         }

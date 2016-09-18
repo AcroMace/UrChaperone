@@ -11,6 +11,7 @@
 		636A09751D8DAE1800036124 /* UberService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636A09741D8DAE1800036124 /* UberService.swift */; };
 		636A09771D8DC23100036124 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636A09761D8DC23100036124 /* LoginViewController.swift */; };
 		636A097C1D8DFBDA00036124 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636A097B1D8DFBDA00036124 /* NotificationService.swift */; };
+		636A097F1D8E275100036124 /* ConfiguredViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636A097E1D8E275100036124 /* ConfiguredViewController.swift */; };
 		63B40F5D1D8D33C3008F0BC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B40F5C1D8D33C3008F0BC1 /* AppDelegate.swift */; };
 		63B40F5F1D8D33C3008F0BC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B40F5E1D8D33C3008F0BC1 /* ViewController.swift */; };
 		63B40F621D8D33C3008F0BC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63B40F601D8D33C3008F0BC1 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 		636A09761D8DC23100036124 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		636A097B1D8DFBDA00036124 /* NotificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		636A097D1D8E049400036124 /* UberCHAP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UberCHAP.entitlements; sourceTree = "<group>"; };
+		636A097E1D8E275100036124 /* ConfiguredViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfiguredViewController.swift; sourceTree = "<group>"; };
 		63B40F591D8D33C3008F0BC1 /* UberCHAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberCHAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63B40F5C1D8D33C3008F0BC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63B40F5E1D8D33C3008F0BC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 			children = (
 				63B40F5E1D8D33C3008F0BC1 /* ViewController.swift */,
 				636A09761D8DC23100036124 /* LoginViewController.swift */,
+				636A097E1D8E275100036124 /* ConfiguredViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -174,6 +177,9 @@
 							com.apple.Push = {
 								enabled = 0;
 							};
+							com.apple.SafariKeychain = {
+								enabled = 1;
+							};
 						};
 					};
 				};
@@ -268,6 +274,7 @@
 				636318141D8D4CF200A6780B /* LocationService.swift in Sources */,
 				63B40F5D1D8D33C3008F0BC1 /* AppDelegate.swift in Sources */,
 				63CB11571D8D828700396E33 /* CoordinateTableViewCell.swift in Sources */,
+				636A097F1D8E275100036124 /* ConfiguredViewController.swift in Sources */,
 				636A09751D8DAE1800036124 /* UberService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -394,6 +401,7 @@
 			baseConfigurationReference = 9CD4E02801F1D66357EA57C0 /* Pods-UberCHAP.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = UberCHAP/UberCHAP.entitlements;
 				DEVELOPMENT_TEAM = N92XZM98NX;
 				INFOPLIST_FILE = UberCHAP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -409,6 +417,7 @@
 			baseConfigurationReference = EBDA834F02C1C52A8B117D1E /* Pods-UberCHAP.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = UberCHAP/UberCHAP.entitlements;
 				DEVELOPMENT_TEAM = N92XZM98NX;
 				INFOPLIST_FILE = UberCHAP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

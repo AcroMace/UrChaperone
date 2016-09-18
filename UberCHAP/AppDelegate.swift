@@ -35,4 +35,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIAlertViewDelegate {
         application.applicationIconBadgeNumber = 0
     }
 
+    @available(iOS 9, *)
+    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+        
+        let handledURL = RidesAppDelegate.sharedInstance.application(app, openURL: url, sourceApplication: options[UIApplicationOpenURLOptionsSourceApplicationKey] as? String, annotation: options[UIApplicationOpenURLOptionsAnnotationKey])
+        
+        if (!handledURL) {
+            // Other URL parsing logic
+        }
+        
+        return true
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        let handledURL = RidesAppDelegate.sharedInstance.application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
+        
+        if (!handledURL) {
+            // Other URL parsing logic
+        }
+        
+        return true
+    }
+
 }

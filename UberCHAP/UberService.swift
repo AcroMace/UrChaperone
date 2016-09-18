@@ -14,7 +14,7 @@ class UberService {
     static private let key = "UBER_TOKEN"
 
     static func createLoginButton() -> LoginButton {
-        let scopes: [UberRides.RidesScope] = [.Profile, .Places, .Request]
+        let scopes: [UberRides.RidesScope] = [.Places, .Request]
         let loginManager = LoginManager(loginType: .Native)
         let loginButton = LoginButton(frame: CGRect(origin: CGPointZero, size: CGSize(width: 400.0, height: 80.0)), scopes: scopes, loginManager: loginManager)
 
