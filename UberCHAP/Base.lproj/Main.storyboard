@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5we-p1-iOw">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -50,6 +49,38 @@
             </objects>
             <point key="canvasLocation" x="1685.5999999999999" y="-558.17091454272872"/>
         </scene>
+        <!--Call Uber View Controller-->
+        <scene sceneID="azQ-w7-kJu">
+            <objects>
+                <viewController storyboardIdentifier="CallUberViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jc6-wa-dbJ" customClass="CallUberViewController" customModule="UberCHAP" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rzj-pU-RPL"/>
+                        <viewControllerLayoutGuide type="bottom" id="zpg-zV-dHd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="d89-qN-7ja">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calling Uber..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xe1-3T-sAj">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xe1-3T-sAj" firstAttribute="centerX" secondItem="d89-qN-7ja" secondAttribute="centerX" id="eDY-B2-tmi"/>
+                            <constraint firstItem="xe1-3T-sAj" firstAttribute="centerY" secondItem="d89-qN-7ja" secondAttribute="centerY" id="n3e-Xm-g19"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="kQE-hP-LVP" kind="show" identifier="callUber" id="q4Q-bm-J3P"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S5p-5p-QTp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1686" y="203"/>
+        </scene>
         <!--Configured View Controller-->
         <scene sceneID="2ht-IX-Wfc">
             <objects>
@@ -70,8 +101,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your Home Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhZ-Lr-9Yt">
-                                <frame key="frameInset" minX="8" minY="72" width="220" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Home Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhZ-Lr-9Yt">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Qis-Ep-lDN"/>
                                 </constraints>
@@ -89,30 +119,21 @@
                                     <action selector="saveHomeLocation:" destination="kQE-hP-LVP" eventType="touchUpInside" id="xaX-vO-lX2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQh-0o-KZT">
-                                <state key="normal" title="Debug"/>
-                                <connections>
-                                    <segue destination="rYf-KG-JYk" kind="show" identifier="showDebug" id="iCW-C9-f6v"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="KnS-Ju-G11" secondAttribute="trailing" id="0nr-3L-YLk"/>
                             <constraint firstAttribute="trailing" secondItem="aQx-TH-LFV" secondAttribute="trailing" constant="8" id="2wc-Bw-ibU"/>
                             <constraint firstItem="KnS-Ju-G11" firstAttribute="top" secondItem="aQx-TH-LFV" secondAttribute="bottom" constant="3" id="Ahl-E1-cZt"/>
-                            <constraint firstItem="KnS-Ju-G11" firstAttribute="top" secondItem="YQh-0o-KZT" secondAttribute="bottom" constant="3" id="DTq-lF-whT"/>
                             <constraint firstItem="mkD-j8-mz9" firstAttribute="leading" secondItem="47U-aZ-WTL" secondAttribute="leading" constant="8" id="FXt-bd-ZpT"/>
                             <constraint firstItem="KnS-Ju-G11" firstAttribute="leading" secondItem="47U-aZ-WTL" secondAttribute="leading" id="Ff5-xl-mP5"/>
                             <constraint firstItem="KnS-Ju-G11" firstAttribute="top" secondItem="XhZ-Lr-9Yt" secondAttribute="bottom" constant="8" id="J8n-6p-iZf"/>
                             <constraint firstAttribute="trailing" secondItem="mkD-j8-mz9" secondAttribute="trailing" constant="8" id="KKV-pU-b1V"/>
                             <constraint firstItem="mkD-j8-mz9" firstAttribute="top" secondItem="KnS-Ju-G11" secondAttribute="bottom" constant="8" id="NoF-0G-HsW"/>
                             <constraint firstItem="XhZ-Lr-9Yt" firstAttribute="leading" secondItem="47U-aZ-WTL" secondAttribute="leading" constant="8" id="gZc-7W-CLU"/>
-                            <constraint firstItem="YQh-0o-KZT" firstAttribute="top" secondItem="jG9-TV-Vbg" secondAttribute="bottom" constant="4" id="k9a-5T-y13"/>
-                            <constraint firstItem="aQx-TH-LFV" firstAttribute="leading" secondItem="YQh-0o-KZT" secondAttribute="trailing" constant="8" id="kep-LR-Ab1"/>
+                            <constraint firstItem="aQx-TH-LFV" firstAttribute="leading" secondItem="XhZ-Lr-9Yt" secondAttribute="trailing" constant="8" id="kDz-7Z-8mh"/>
                             <constraint firstItem="aQx-TH-LFV" firstAttribute="top" secondItem="jG9-TV-Vbg" secondAttribute="bottom" constant="4" id="lGn-9r-yP8"/>
                             <constraint firstItem="XhZ-Lr-9Yt" firstAttribute="top" secondItem="jG9-TV-Vbg" secondAttribute="bottom" constant="8" id="n0O-R7-Z0r"/>
-                            <constraint firstItem="YQh-0o-KZT" firstAttribute="leading" secondItem="XhZ-Lr-9Yt" secondAttribute="trailing" constant="45" id="pEa-W4-Flg"/>
                             <constraint firstItem="Qph-dZ-CGB" firstAttribute="top" secondItem="mkD-j8-mz9" secondAttribute="bottom" constant="8" id="xR9-vw-Yzn"/>
                         </constraints>
                     </view>
@@ -123,41 +144,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TEn-vo-quQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2544.8000000000002" y="-558.17091454272872"/>
-        </scene>
-        <!--Debug View Controller-->
-        <scene sceneID="sUc-Dn-j3b">
-            <objects>
-                <viewController id="rYf-KG-JYk" customClass="DebugViewController" customModule="UberCHAP" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="kZx-6a-EBC"/>
-                        <viewControllerLayoutGuide type="bottom" id="7iS-Rl-nKQ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="LjQ-Td-Bgy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="N8w-Q7-bhC">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="7iS-Rl-nKQ" firstAttribute="top" secondItem="N8w-Q7-bhC" secondAttribute="bottom" id="5Ew-CW-BvS"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="N8w-Q7-bhC" secondAttribute="trailing" id="NZ5-Ff-jbG"/>
-                            <constraint firstItem="N8w-Q7-bhC" firstAttribute="top" secondItem="kZx-6a-EBC" secondAttribute="bottom" id="ixy-lD-ppp"/>
-                            <constraint firstItem="N8w-Q7-bhC" firstAttribute="leading" secondItem="LjQ-Td-Bgy" secondAttribute="leadingMargin" id="n9z-N1-6cM"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="textView" destination="N8w-Q7-bhC" id="C0o-05-7vv"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jjx-SX-Qla" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3327" y="-558"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aFa-eP-dmG">
@@ -179,6 +165,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2VX-Zz-GwW"/>
+        <segue reference="q4Q-bm-J3P"/>
     </inferredMetricsTieBreakers>
 </document>

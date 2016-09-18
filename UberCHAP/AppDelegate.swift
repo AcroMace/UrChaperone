@@ -23,7 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIAlertViewDelegate {
         // Register for push notifications
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Alert, categories: nil))
 
+        // Opened a push notification from when the app was killed
         if let localNotification = launchOptions?[UIApplicationLaunchOptionsLocalNotificationKey] {
+            print("App cold opened from local notification: \(localNotification)")
             application.applicationIconBadgeNumber = 0;
         }
 
@@ -33,7 +35,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIAlertViewDelegate {
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
         // Probably no need to show alerts when the app is open
         application.applicationIconBadgeNumber = 0
+        print("didReceiveLocalNotification")
+
+        let applicationState = UIApplication.sharedApplication().applicationState
+        // Received a push notification while the back
+        if applicationState == .Background || applicationState == .Inactive {
+            print("didReceiveLocalNotification from background")
+            UIApplication.sharedApplication().windows.first?.rootViewController = CallUberViewController.createInstance()
+        }
     }
+
+    // MARK: Uber stuff
 
     @available(iOS 9, *)
     func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {

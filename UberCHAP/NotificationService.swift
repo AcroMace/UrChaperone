@@ -9,7 +9,7 @@
 import UIKit
 import CoreFoundation
 
-class NotificationService {
+struct NotificationService {
 
     static func scheduleNotification() {
         // Don't conflict with other notifications

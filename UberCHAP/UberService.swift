@@ -9,7 +9,7 @@
 import MapKit
 import UberRides
 
-class UberService {
+struct UberService {
 
     static private let key = "UBER_TOKEN"
 
@@ -24,13 +24,21 @@ class UberService {
     }
 
     static func createRequestButton(presentingViewController: UIViewController) -> RideRequestButton {
-        guard let token = UberService.getToken() else {
+        guard UberService.getToken() != nil else {
             print("ERROR: Attempted to create request button without having authorized to Uber")
             return RideRequestButton()
         }
 
+        guard let coordinates = LocationService.getHomeLocation() else {
+            print("ERROR: Attempted to create request without having a home address set")
+            return RideRequestButton()
+        }
+
         let behavior = RideRequestViewRequestingBehavior(presentingViewController: presentingViewController)
-        let parameters = RideParametersBuilder().setDropoffPlaceID("home").build()
+        let location = LocationService.coordinateToLocation(coordinates)
+        let parameters = RideParametersBuilder()
+            .setDropoffLocation(location, nickname: "Home")
+            .build()
         let button = RideRequestButton(rideParameters: parameters, requestingBehavior: behavior)
         return button
     }
