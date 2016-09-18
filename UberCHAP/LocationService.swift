@@ -59,6 +59,10 @@ class LocationService: NSObject, CLLocationManagerDelegate {
         return coordinate
     }
 
+    static func coordinateToLocation(coordinate: CLLocationCoordinate2D) -> CLLocation {
+        return CLLocation(coordinate: coordinate, altitude: 1, horizontalAccuracy: 1, verticalAccuracy: -1, timestamp: NSDate())
+    }
+
     static private func getInstance() -> NSUserDefaults {
         return NSUserDefaults.standardUserDefaults()
     }
