@@ -12,6 +12,7 @@ class CallUberViewController: UIViewController {
 
     static let identifier = String(CallUberViewController)
     static let segue = "callUber"
+    var didShowUber = false
 
     static func createInstance() -> CallUberViewController {
         print("Creating CallUberViewController")
@@ -21,8 +22,12 @@ class CallUberViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
 
-        let requestButton = UberService.createRequestButton(self)
-        requestButton.sendActionsForControlEvents(.TouchUpInside)
+        if !didShowUber {
+            let requestButton = UberService.createRequestButton(self)
+            requestButton.sendActionsForControlEvents(.TouchUpInside)
+            didShowUber = true
+        }
+        performSegueWithIdentifier(CallUberViewController.segue, sender: self)
     }
 
 }
