@@ -2,21 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UberClientID</key>
-	<string>rIjDIkW72VzOZBAmso5D1D5jDG9V4jwP</string>
-	<key>UberDisplayName</key>
-	<string>UberCHAP</string>
-	<key>UberCallbackURIs</key>
-	<array>
-		<dict>
-			<key>UberCallbackURIType</key>
-			<string>General</string>
-			<key>URIString</key>
-			<string>localhost</string>
-		</dict>
-	</array>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Used to know when you leave a bar</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -35,10 +20,13 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Used to know when you leave a bar</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
 		<string>location</string>
+		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
@@ -61,5 +49,18 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UberCallbackURIs</key>
+	<array>
+		<dict>
+			<key>URIString</key>
+			<string>localhost</string>
+			<key>UberCallbackURIType</key>
+			<string>General</string>
+		</dict>
+	</array>
+	<key>UberClientID</key>
+	<string>rIjDIkW72VzOZBAmso5D1D5jDG9V4jwP</string>
+	<key>UberDisplayName</key>
+	<string>UberCHAP</string>
 </dict>
 </plist>

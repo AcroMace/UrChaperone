@@ -20,6 +20,9 @@ class LoginViewController: UIViewController {
         loginButton.presentingViewController = self
         loginButton.delegate = self
         stackView.addArrangedSubview(loginButton)
+
+        // Set a temporary notification thing
+        NotificationService.scheduleNotification()
     }
 
     private func checkIfAlreadyAuthorized() {
