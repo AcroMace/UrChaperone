@@ -59,17 +59,12 @@ class ConfiguredViewController: UIViewController, LocationServiceDelegate  {
     }
 
     private func coordinatesDistance(coordinate1: CLLocationCoordinate2D, coordinate2: CLLocationCoordinate2D) -> Double {
-        let point1 = MKMapPointMake(coordinate1.latitude, coordinate1.longitude)
-        let point2 = MKMapPointMake(coordinate2.latitude, coordinate2.longitude)
-        return MKMetersBetweenMapPoints(point1, point2)
+        return coordinateToLocation(coordinate1).distanceFromLocation(coordinateToLocation(coordinate2))
     }
 
-    // showDebug
-
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        // Get the new view controller using segue.destinationViewController.
-//        // Pass the selected object to the new view controller.
-//    }
+    private func coordinateToLocation(coordinate: CLLocationCoordinate2D) -> CLLocation {
+        return CLLocation(coordinate: coordinate, altitude: 1, horizontalAccuracy: 1, verticalAccuracy: -1, timestamp: NSDate())
+    }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let debugViewController = segue.destinationViewController as? DebugViewController {
