@@ -16,13 +16,13 @@ class ConfiguredViewController: UIViewController, LocationServiceDelegate  {
 
     let locationService = LocationService()
     var coordinates = [CLLocationCoordinate2D]()
-    var alreadyDisplayingHomePin = false
+    var homeLocation: CLLocationCoordinate2D? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         if let homeLocation = LocationService.getHomeLocation() {
-            alreadyDisplayingHomePin = true
+            self.homeLocation = homeLocation
             addHomePinToMap(at: homeLocation)
         }
 
@@ -32,9 +32,13 @@ class ConfiguredViewController: UIViewController, LocationServiceDelegate  {
 
     func locationDidUpdate(coordinate: CLLocationCoordinate2D) {
         coordinates.append(coordinate)
-        if !alreadyDisplayingHomePin && coordinates.count == 1 {
+        if homeLocation == nil && coordinates.count == 1 {
             addHomePinToMap(at: coordinate)
             LocationService.saveHomeLocation(coordinate)
+        }
+
+        if let homeLocation = homeLocation {
+            print("Distance: \(coordinatesDistance(homeLocation, coordinate2: coordinate))")
         }
     }
 
@@ -49,6 +53,12 @@ class ConfiguredViewController: UIViewController, LocationServiceDelegate  {
         annotation.coordinate = coordinate
         annotation.title = "Home"
         mapView.addAnnotation(annotation)
+    }
+
+    private func coordinatesDistance(coordinate1: CLLocationCoordinate2D, coordinate2: CLLocationCoordinate2D) -> Double {
+        let point1 = MKMapPointMake(coordinate1.latitude, coordinate1.longitude)
+        let point2 = MKMapPointMake(coordinate2.latitude, coordinate2.longitude)
+        return MKMetersBetweenMapPoints(point1, point2)
     }
 
 }
