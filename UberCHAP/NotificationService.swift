@@ -17,9 +17,12 @@ struct NotificationService {
         // Schedule the new one
         let localNotification = UILocalNotification()
         localNotification.fireDate = NSDate()
-        localNotification.alertBody = "Swipe to go home"
+        localNotification.alertTitle = "Swipe for a ride home"
+        localNotification.alertBody = "Call an Uber"
+        localNotification.hasAction = true
+        localNotification.alertAction = "Slide to go home"
         localNotification.timeZone = NSTimeZone.localTimeZone()
-//        localNotification.repeatInterval = .Minute
+        localNotification.repeatInterval = .Minute
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
     }
 

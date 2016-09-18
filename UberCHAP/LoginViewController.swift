@@ -23,6 +23,8 @@ class LoginViewController: UIViewController {
         loginButton.frame = CGRect(origin: CGPoint(x: (view.frame.width - loginButton.frame.width)/2, y: view.frame.height * 0.8), size: loginButton.frame.size)
 
         checkIfAlreadyAuthorized()
+
+        LocationService.search("256 Blair St")
     }
 
     private func checkIfAlreadyAuthorized() {
@@ -35,7 +37,10 @@ class LoginViewController: UIViewController {
     private func createLoginButton() -> LoginButton {
         let scopes: [UberRides.RidesScope] = [.Profile, .Places, .Request]
         let loginManager = LoginManager(loginType: .Native)
-        let loginButton = LoginButton(frame: CGRect(origin: CGPointZero, size: CGSize(width: view.frame.width * 0.6, height: 80.0)), scopes: scopes, loginManager: loginManager)
+        let frame = CGRect(origin: CGPointZero, size: CGSize(width: 200, height: 80.0))
+        let loginButton = LoginButton(frame: frame, scopes: scopes, loginManager: loginManager)
+        loginButton.frame = frame
+        loginButton.frame.size = frame.size
         loginButton.presentingViewController = self
         loginButton.delegate = self
 

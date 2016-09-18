@@ -67,6 +67,14 @@ class LocationService: NSObject {
         return NSUserDefaults.standardUserDefaults()
     }
 
+    static func search(address: String) {
+        let searchRequest = MKLocalSearchRequest()
+        searchRequest.naturalLanguageQuery = address
+        let search = MKLocalSearch(request: searchRequest)
+        search.startWithCompletionHandler { response, error in
+            print("Search Response: \(response), Error: \(error)")
+        }
+    }
 }
 
 // MARK: CLLocationManagerDelegate
