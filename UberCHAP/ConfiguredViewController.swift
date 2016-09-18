@@ -17,6 +17,7 @@ class ConfiguredViewController: UIViewController, LocationServiceDelegate  {
     let locationService = LocationService()
     var coordinates = [CLLocationCoordinate2D]()
     var homeLocation: CLLocationCoordinate2D? = nil
+    var distances = [Double]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,9 @@ class ConfiguredViewController: UIViewController, LocationServiceDelegate  {
         }
 
         if let homeLocation = homeLocation {
-            print("Distance: \(coordinatesDistance(homeLocation, coordinate2: coordinate))")
+            let distance = coordinatesDistance(homeLocation, coordinate2: coordinate)
+            distances.append(distance)
+            print(distance)
         }
     }
 
@@ -61,4 +64,17 @@ class ConfiguredViewController: UIViewController, LocationServiceDelegate  {
         return MKMetersBetweenMapPoints(point1, point2)
     }
 
+    // showDebug
+
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        // Get the new view controller using segue.destinationViewController.
+//        // Pass the selected object to the new view controller.
+//    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let debugViewController = segue.destinationViewController as? DebugViewController {
+            debugViewController.distances = distances
+        }
+    }
+    
 }
