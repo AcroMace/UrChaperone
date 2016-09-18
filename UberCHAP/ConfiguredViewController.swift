@@ -62,10 +62,4 @@ class ConfiguredViewController: UIViewController, LocationServiceDelegate  {
         return LocationService.coordinateToLocation(coordinate1).distanceFromLocation(LocationService.coordinateToLocation(coordinate2))
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let debugViewController = segue.destinationViewController as? DebugViewController {
-            debugViewController.distances = distances
-        }
-    }
-    
 }

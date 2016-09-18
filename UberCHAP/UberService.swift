@@ -9,7 +9,7 @@
 import MapKit
 import UberRides
 
-class UberService {
+struct UberService {
 
     static private let key = "UBER_TOKEN"
 
