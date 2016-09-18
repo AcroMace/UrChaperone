@@ -17,7 +17,7 @@ class PositionDistance {
 ///HOW TO USE THE CLASS
 ///let getPos = PositionDistance() ///create an object to calculate the distances
 ///var dist = 0.0 ///something to store the distances
-///NOTE: the for loop will be supstituted witha a continuous flow of data to smooth it out
+///NOTE: the for loop will be substituted witha a continuous flow of data to smooth it out
 ///for i in stride (from: 0, to: distanceToHome.count, by: 1) {
 ///    dist = getPos.rolledAverage(newVal: distanceToHome[i])
 ///    print (dist)
