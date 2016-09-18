@@ -59,11 +59,7 @@ class ConfiguredViewController: UIViewController, LocationServiceDelegate  {
     }
 
     private func coordinatesDistance(coordinate1: CLLocationCoordinate2D, coordinate2: CLLocationCoordinate2D) -> Double {
-        return coordinateToLocation(coordinate1).distanceFromLocation(coordinateToLocation(coordinate2))
-    }
-
-    private func coordinateToLocation(coordinate: CLLocationCoordinate2D) -> CLLocation {
-        return CLLocation(coordinate: coordinate, altitude: 1, horizontalAccuracy: 1, verticalAccuracy: -1, timestamp: NSDate())
+        return LocationService.coordinateToLocation(coordinate1).distanceFromLocation(LocationService.coordinateToLocation(coordinate2))
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
