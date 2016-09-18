@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		633959D31D8E59940038F152 /* CallUberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633959D21D8E59940038F152 /* CallUberViewController.swift */; };
+		633959D51D8EB1860038F152 /* PositionDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633959D41D8EB1860038F152 /* PositionDistance.swift */; };
 		636318141D8D4CF200A6780B /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636318131D8D4CF200A6780B /* LocationService.swift */; };
 		636A09751D8DAE1800036124 /* UberService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636A09741D8DAE1800036124 /* UberService.swift */; };
 		636A09771D8DC23100036124 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636A09761D8DC23100036124 /* LoginViewController.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		41A7BD810FAF9A69BA415425 /* Pods_UberCHAP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberCHAP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		633959D21D8E59940038F152 /* CallUberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallUberViewController.swift; sourceTree = "<group>"; };
+		633959D41D8EB1860038F152 /* PositionDistance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionDistance.swift; sourceTree = "<group>"; };
 		636318131D8D4CF200A6780B /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		636A09741D8DAE1800036124 /* UberService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UberService.swift; sourceTree = "<group>"; };
 		636A09761D8DC23100036124 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				636318131D8D4CF200A6780B /* LocationService.swift */,
 				636A09741D8DAE1800036124 /* UberService.swift */,
 				636A097B1D8DFBDA00036124 /* NotificationService.swift */,
+				633959D41D8EB1860038F152 /* PositionDistance.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				636A09771D8DC23100036124 /* LoginViewController.swift in Sources */,
 				636A097C1D8DFBDA00036124 /* NotificationService.swift in Sources */,
 				636318141D8D4CF200A6780B /* LocationService.swift in Sources */,
+				633959D51D8EB1860038F152 /* PositionDistance.swift in Sources */,
 				633959D31D8E59940038F152 /* CallUberViewController.swift in Sources */,
 				63B40F5D1D8D33C3008F0BC1 /* AppDelegate.swift in Sources */,
 				63CB11571D8D828700396E33 /* CoordinateTableViewCell.swift in Sources */,
