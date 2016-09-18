@@ -12,16 +12,20 @@ import CoreFoundation
 struct NotificationService {
 
     static func scheduleNotification() {
-        // Don't conflict with other notifications
-        UIApplication.sharedApplication().cancelAllLocalNotifications()
+        disableNotifications()
 
         // Schedule the new one
         let localNotification = UILocalNotification()
         localNotification.fireDate = NSDate(timeIntervalSinceNow: 3)
         localNotification.alertBody = "Swipe to go home"
         localNotification.timeZone = NSTimeZone.localTimeZone()
-        localNotification.repeatInterval = .Minute
+//        localNotification.repeatInterval = .Minute
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+    }
+
+    static func disableNotifications() {
+        // Don't conflict with other notifications
+        UIApplication.sharedApplication().cancelAllLocalNotifications()
     }
 
 }

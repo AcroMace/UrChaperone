@@ -16,11 +16,12 @@ class ConfiguredViewController: UIViewController, LocationServiceDelegate  {
 
     // Minimum distance the user has to travel from their homes before they are
     // asked to book a ride
-    static let minDistanceBeforePushInMeters: Double = 50
+    static let minDistanceBeforePushInMeters: Double = 20
 
     let locationService = LocationService()
     var homeLocation: CLLocationCoordinate2D? = nil
     var lastCoordinate: CLLocationCoordinate2D? = nil
+    var userWasAtHomeLastUpdate = true
     var distances = [Double]()
 
     override func viewDidLoad() {
@@ -49,8 +50,20 @@ class ConfiguredViewController: UIViewController, LocationServiceDelegate  {
         distances.append(distance)
 
         if distance > ConfiguredViewController.minDistanceBeforePushInMeters {
-            // Stop getting the location after we establish that the user has left their house
-            locationService.toggle(false)
+            print("Scheduling a notification - user is not home")
+
+            // Schedule a notification when the user leaves their house
+            if userWasAtHomeLastUpdate {
+                // Stops a push notification from getting sent every update
+                NotificationService.scheduleNotification()
+            }
+            userWasAtHomeLastUpdate = false
+        } else {
+            print("Deleting all notifications - user is home")
+
+            // Disable all notifications after coming back
+            NotificationService.disableNotifications()
+            userWasAtHomeLastUpdate = true
         }
     }
 
