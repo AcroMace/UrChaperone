@@ -28,10 +28,16 @@ class LocationService: NSObject {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.delegate = self
 
-        // Ask the user for permission to use location
+        /**
+         * Ask the user for permission to use location
+         *
+         * This is terrible UX since the user is asked for the permission as soon as
+         * they install the app
+         **/
         locationManager.requestAlwaysAuthorization()
     }
 
+    // Probably a worthless method that should be separated into `startUpdate` and `endUpdate`
     func toggle(enable: Bool) {
         if enable {
             locationManager.startUpdatingLocation()
@@ -63,10 +69,12 @@ class LocationService: NSObject {
         return CLLocation(coordinate: coordinate, altitude: 1, horizontalAccuracy: 1, verticalAccuracy: -1, timestamp: NSDate())
     }
 
+    // We probably should abstract this out into a user defaults service
     static private func getInstance() -> NSUserDefaults {
         return NSUserDefaults.standardUserDefaults()
     }
 
+    // Search an address to get the possible coordinates of the addresss
     static func search(address: String) {
         let searchRequest = MKLocalSearchRequest()
         searchRequest.naturalLanguageQuery = address

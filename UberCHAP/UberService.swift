@@ -13,11 +13,13 @@ struct UberService {
 
     static private let key = "UBER_TOKEN"
 
+    // Again with the hard coded dimensions
     static func createLoginButton() -> LoginButton {
         let scopes: [UberRides.RidesScope] = [.Places, .Request]
         let loginManager = LoginManager(loginType: .Native)
         let loginButton = LoginButton(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 400.0, height: 80.0)), scopes: scopes, loginManager: loginManager)
 
+        // This was added back when the login page had a stack view. Probably no longer needed.
         loginButton.addConstraint(NSLayoutConstraint(item: loginButton, attribute: .Height, relatedBy: .Equal, toItem: .None, attribute: .NotAnAttribute, multiplier: 1.0, constant: 80.0))
 
         return loginButton

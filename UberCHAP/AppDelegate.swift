@@ -15,9 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIAlertViewDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
-        // If true, all requests will hit the sandbox, useful for testing
+        // Use sandbox mode for Uber
         Configuration.setSandboxEnabled(true)
-        // If true, Native login will try and fallback to using Authorization Code Grant login (for privileged scopes). Otherwise will redirect to App store
+        // We need privileged scope to request an Uber ride, so there's no point falling back
         Configuration.setFallbackEnabled(false)
 
         // Register for push notifications
@@ -33,12 +33,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIAlertViewDelegate {
     }
 
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
-        // Probably no need to show alerts when the app is open
-        application.applicationIconBadgeNumber = 0
-        print("didReceiveLocalNotification")
-
         let applicationState = UIApplication.sharedApplication().applicationState
-        // Received a push notification while the back
+
+        // Received a push notification while backgrounded
+        // We need a way to deal with the user opening the app after receiving a push notification
+        // but without swiping on the push notification
         if applicationState == .Background || applicationState == .Inactive {
             print("didReceiveLocalNotification from background")
             UIApplication.sharedApplication().windows.first?.rootViewController = CallUberViewController.createInstance()
@@ -46,6 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIAlertViewDelegate {
     }
 
     // MARK: Uber stuff
+    // The stuff below was added for Uber OAuth. May not actually be necessary.
 
     @available(iOS 9, *)
     func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {

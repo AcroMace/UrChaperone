@@ -14,7 +14,7 @@ struct NotificationService {
     static func scheduleNotification() {
         disableNotifications()
 
-        // Schedule the new one
+        // Schedule the new notification
         let localNotification = UILocalNotification()
         localNotification.fireDate = NSDate()
         localNotification.alertTitle = "Call an Uber"

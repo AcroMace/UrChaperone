@@ -18,7 +18,6 @@
 		63B40F621D8D33C3008F0BC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63B40F601D8D33C3008F0BC1 /* Main.storyboard */; };
 		63B40F641D8D33C3008F0BC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63B40F631D8D33C3008F0BC1 /* Assets.xcassets */; };
 		63B40F671D8D33C3008F0BC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63B40F651D8D33C3008F0BC1 /* LaunchScreen.storyboard */; };
-		63CB11571D8D828700396E33 /* CoordinateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CB11561D8D828700396E33 /* CoordinateTableViewCell.swift */; };
 		73FE13D4738D6985DFE9C8C1 /* Pods_UberCHAP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A7BD810FAF9A69BA415425 /* Pods_UberCHAP.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +37,6 @@
 		63B40F631D8D33C3008F0BC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63B40F661D8D33C3008F0BC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63B40F681D8D33C3008F0BC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		63CB11561D8D828700396E33 /* CoordinateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinateTableViewCell.swift; sourceTree = "<group>"; };
 		9CD4E02801F1D66357EA57C0 /* Pods-UberCHAP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberCHAP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UberCHAP/Pods-UberCHAP.debug.xcconfig"; sourceTree = "<group>"; };
 		EBDA834F02C1C52A8B117D1E /* Pods-UberCHAP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberCHAP.release.xcconfig"; path = "Pods/Target Support Files/Pods-UberCHAP/Pods-UberCHAP.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -55,14 +53,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		636A09781D8DCAD400036124 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				63CB11561D8D828700396E33 /* CoordinateTableViewCell.swift */,
-			);
-			name = Views;
-			sourceTree = "<group>";
-		};
 		636A09791D8DCC4100036124 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,7 +96,6 @@
 			isa = PBXGroup;
 			children = (
 				63B40F5C1D8D33C3008F0BC1 /* AppDelegate.swift */,
-				636A09781D8DCAD400036124 /* Views */,
 				636A09791D8DCC4100036124 /* View Controllers */,
 				636A097A1D8DCC4B00036124 /* Services */,
 				63B40F601D8D33C3008F0BC1 /* Main.storyboard */,
@@ -277,7 +266,6 @@
 				633959D51D8EB1860038F152 /* PositionDistance.swift in Sources */,
 				633959D31D8E59940038F152 /* CallUberViewController.swift in Sources */,
 				63B40F5D1D8D33C3008F0BC1 /* AppDelegate.swift in Sources */,
-				63CB11571D8D828700396E33 /* CoordinateTableViewCell.swift in Sources */,
 				636A097F1D8E275100036124 /* ConfiguredViewController.swift in Sources */,
 				636A09751D8DAE1800036124 /* UberService.swift in Sources */,
 			);

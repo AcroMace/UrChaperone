@@ -15,13 +15,16 @@ class CallUberViewController: UIViewController {
     var didShowUber = false
 
     static func createInstance() -> CallUberViewController {
-        print("Creating CallUberViewController")
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(identifier) as! CallUberViewController
     }
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
 
+        /**
+         * We use the flag since the view is shown again when the user closes the Uber request
+         * window. Otherwise, the user would just be shown the Uber window again.
+         **/
         if !didShowUber {
             let requestButton = UberService.createRequestButton(self)
             requestButton.sendActionsForControlEvents(.TouchUpInside)
