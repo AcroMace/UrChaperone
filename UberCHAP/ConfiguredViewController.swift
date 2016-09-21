@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import UberRides
 
-class ConfiguredViewController: UIViewController, LocationServiceDelegate  {
+class ConfiguredViewController: UIViewController, LocationServiceDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
 

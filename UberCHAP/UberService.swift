@@ -16,7 +16,7 @@ struct UberService {
     static func createLoginButton() -> LoginButton {
         let scopes: [UberRides.RidesScope] = [.Places, .Request]
         let loginManager = LoginManager(loginType: .Native)
-        let loginButton = LoginButton(frame: CGRect(origin: CGPointZero, size: CGSize(width: 400.0, height: 80.0)), scopes: scopes, loginManager: loginManager)
+        let loginButton = LoginButton(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 400.0, height: 80.0)), scopes: scopes, loginManager: loginManager)
 
         loginButton.addConstraint(NSLayoutConstraint(item: loginButton, attribute: .Height, relatedBy: .Equal, toItem: .None, attribute: .NotAnAttribute, multiplier: 1.0, constant: 80.0))
 

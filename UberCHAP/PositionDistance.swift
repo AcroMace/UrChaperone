@@ -9,7 +9,7 @@ class PositionDistance {
         return currAvg       ///returns smoothed distance
     }
     ///TODO: get quick distance from home
-    func getPosFromHome(){
+    func getPosFromHome() {
         ///UberRides /v1/Places: Home
     }
 }

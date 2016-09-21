@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIAlertViewDelegate {
         // Opened a push notification from when the app was killed
         if let localNotification = launchOptions?[UIApplicationLaunchOptionsLocalNotificationKey] {
             print("App cold opened from local notification: \(localNotification)")
-            application.applicationIconBadgeNumber = 0;
+            application.applicationIconBadgeNumber = 0
         }
 
         return true
@@ -49,23 +49,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIAlertViewDelegate {
 
     @available(iOS 9, *)
     func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
-        
+
         let handledURL = RidesAppDelegate.sharedInstance.application(app, openURL: url, sourceApplication: options[UIApplicationOpenURLOptionsSourceApplicationKey] as? String, annotation: options[UIApplicationOpenURLOptionsAnnotationKey])
-        
+
         if (!handledURL) {
             // Other URL parsing logic
         }
-        
+
         return true
     }
-    
+
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         let handledURL = RidesAppDelegate.sharedInstance.application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
-        
+
         if (!handledURL) {
             // Other URL parsing logic
         }
-        
+
         return true
     }
 
